@@ -23,6 +23,7 @@ public class Main {
             String userInputStr = scanner.nextLine();
 
             int userInputNum = Integer.parseInt(userInputStr);
+            String csvFile = "/Users/k.a_/IdeaProjects/java-learning-v2/src/SummerText/Master.csv";
 
             if (userInputNum == 9) {
                 System.out.println(menuList.get(2));
@@ -32,13 +33,15 @@ public class Main {
                 System.out.println("「" + menuList.get(0) + "」" + "が選択されました");
                 System.out.println("銘柄マスタを表示します");
 
-                String csvFile = "/Users/k.a_/IdeaProjects/java-learning-v2/src/SummerText/Master.csv";
                 CsvManager csvManager = new CsvManager(csvFile);
                 csvManager.displayCsv();
                 System.out.println("---");
             }
             else if (userInputNum == 2) {
                 System.out.println("「" + menuList.get(1) + "」" + "が選択されました");
+                System.out.println("新規株式銘柄マスタを登録します");
+                CsvManager csvManager = new CsvManager(csvFile);
+                csvManager.addNewEntry();
                 System.out.println("---");
             }
             else {
