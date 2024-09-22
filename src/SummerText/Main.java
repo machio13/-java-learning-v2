@@ -1,7 +1,5 @@
 package SummerText;
 
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -52,8 +50,8 @@ public class Main {
             }
             else if (userInputNum == 3) {
                 System.out.println("「" + menuList.get(3) + "」が選択されました");
-                InputTradeData inputTradeData = new InputTradeData();
-                inputTradeData.userInputTradeData();
+                TradeData tradeData = new TradeData();
+                tradeData.userInputTradeData();
                 System.out.println("---");
             }
             else if (userInputNum == 4) {

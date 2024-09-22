@@ -2,14 +2,12 @@ package SummerText;
 
 import java.io.*;
 import java.math.BigDecimal;
-import java.nio.charset.StandardCharsets;
 import java.time.DateTimeException;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
-public class InputTradeData {
+public class TradeData {
     private LocalDateTime tradedDateTime;
     private String tradeName;
     private String side;
