@@ -15,6 +15,7 @@ public class Main {
         menuList.add("銘柄マスタ一覧表示");
         menuList.add("銘柄マスタ新規登録");
         menuList.add("取引入力");
+        menuList.add("取引一覧の表示");
 
         System.out.println("株式管理システムを開始します");
         while (true) {
@@ -22,6 +23,7 @@ public class Main {
             System.out.println("1. " + menuList.get(1));
             System.out.println("2. " + menuList.get(2));
             System.out.println("3. " + menuList.get(3));
+            System.out.println("4. " + menuList.get(4));
             System.out.println("9. " + menuList.get(0));
             System.out.print("入力してください:");
             String userInputStr = scanner.nextLine();
@@ -53,6 +55,10 @@ public class Main {
                 InputTradeData inputTradeData = new InputTradeData();
                 inputTradeData.userInputTradeData();
                 System.out.println("---");
+            }
+            else if (userInputNum == 4) {
+                System.out.println("「" + menuList.get(4) + "」が選択されました");
+
             }
             else {
                 System.out.println("\"" + userInputStr + "\"" + "に対応するメニューは存在しません。");
