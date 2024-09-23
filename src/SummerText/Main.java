@@ -16,50 +16,50 @@ public class Main {
         menuList.add("取引一覧の表示");
 
         System.out.println("株式管理システムを開始します");
-        while (true) {
-            System.out.println("操作するメニューを選んでください");
-            System.out.println("1. " + menuList.get(1));
-            System.out.println("2. " + menuList.get(2));
-            System.out.println("3. " + menuList.get(3));
-            System.out.println("4. " + menuList.get(4));
-            System.out.println("9. " + menuList.get(0));
-            System.out.print("入力してください:");
-            String userInputStr = scanner.nextLine();
+            while (true) {
+                try {
+                    System.out.println("操作するメニューを選んでください");
+                    System.out.println("1. " + menuList.get(1));
+                    System.out.println("2. " + menuList.get(2));
+                    System.out.println("3. " + menuList.get(3));
+                    System.out.println("4. " + menuList.get(4));
+                    System.out.println("9. " + menuList.get(0));
+                    System.out.print("入力してください:");
+                    String userInputStr = scanner.nextLine();
 
-            int userInputNum = Integer.parseInt(userInputStr);
-            String csvFile = "/Users/k.a_/IdeaProjects/java-learning-v2/src/SummerText/Master.csv";
+                    int userInputNum = Integer.parseInt(userInputStr);
+                    String csvFile = "/Users/k.a_/IdeaProjects/java-learning-v2/src/SummerText/Master.csv";
 
-            if (userInputNum == 9) {
-                System.out.println(menuList.get(0));
-                break;
-            }
-            else if (userInputNum == 1) {
-                System.out.println("「" + menuList.get(1) + "」が選択されました");
-                System.out.println("銘柄マスタを表示します");
+                    if (userInputNum == 9) {
+                        System.out.println(menuList.get(0));
+                        break;
+                    } else if (userInputNum == 1) {
+                        System.out.println("「" + menuList.get(1) + "」が選択されました");
+                        System.out.println("銘柄マスタを表示します");
 
-                CsvManager csvManager = new CsvManager(csvFile);
-                csvManager.displayCsv();
-                System.out.println("---");
-            }
-            else if (userInputNum == 2) {
-                System.out.println("「" + menuList.get(2) + "」が選択されました");
-                System.out.println("新規株式銘柄マスタを登録します");
-                NewEntry newEntry = new NewEntry(csvFile);
-                newEntry.addNewEntry();
-                System.out.println("---");
-            }
-            else if (userInputNum == 3) {
-                System.out.println("「" + menuList.get(3) + "」が選択されました");
-                TradeData tradeData = new TradeData();
-                tradeData.userInputTradeData();
-                System.out.println("---");
-            }
-            else if (userInputNum == 4) {
-                System.out.println("「" + menuList.get(4) + "」が選択されました");
+                        CsvManager csvManager = new CsvManager(csvFile);
+                        csvManager.displayCsv();
+                        System.out.println("---");
+                    } else if (userInputNum == 2) {
+                        System.out.println("「" + menuList.get(2) + "」が選択されました");
+                        System.out.println("新規株式銘柄マスタを登録します");
+                        NewEntry newEntry = new NewEntry(csvFile);
+                        newEntry.addNewEntry();
+                        System.out.println("---");
+                    } else if (userInputNum == 3) {
+                        System.out.println("「" + menuList.get(3) + "」が選択されました");
+                        TradeData tradeData = new TradeData();
+                        tradeData.userInputTradeData();
+                        System.out.println("---");
+                    } else if (userInputNum == 4) {
+                        System.out.println("「" + menuList.get(4) + "」が選択されました");
 
-            }
-            else {
-                System.out.println("\"" + userInputStr + "\"" + "に対応するメニューは存在しません。");
+                    } else {
+                        System.out.println("\"" + userInputStr + "\"" + "に対応するメニューは存在しません。");
+                    }
+                }catch (NumberFormatException e) {
+                    System.out.println("数字以外の入力です。やり直してください。");
+                    System.out.println("---");
             }
         }
     }
