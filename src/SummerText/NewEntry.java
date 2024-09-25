@@ -46,8 +46,8 @@ public class NewEntry {
         // 上場市場を入力（Prime、Standard、Growthのみ許可）
         while (true) {
             System.out.print("上場市場（Prime、Standard、Growth)>");
-            market = scanner.nextLine();
-            if (market.equalsIgnoreCase("Prime") || market.equalsIgnoreCase("Standard") || market.equalsIgnoreCase("Growth")) {
+            Market.fromCode(market) = scanner.nextLine();
+            if (m.PRIME) {
                 market = market.substring(0, 1).toUpperCase() + market.substring(1).toLowerCase();  // 入力を正しい形式に整形
                 break;
             } else {

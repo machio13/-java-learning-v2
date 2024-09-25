@@ -1,15 +1,17 @@
 package SummerText;
 
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.List;
 
 public class Stock {
     String ticker;
     String productName;
-    String market;
+    Market market;
     String sharesIssued;
 
     // コンストラクタ
-    public Stock(String ticker, String productName, String market, String sharesIssued) {
+    public Stock(String ticker, String productName, Market market, String sharesIssued) {
         this.ticker = ticker;
         this.productName = productName;
         this.market = market;
@@ -17,14 +19,14 @@ public class Stock {
     }
 
     // Marketの変換メソッド
-    public static String convertMarketType(String marketCode) {
-        return switch (marketCode) {
-            case "P" -> "Prime";
-            case "S" -> "Standard";
-            case "G" -> "Growth";
-            default -> "Unknown";
-        };
-    }
+//    public static String convertMarketType(String marketCode) {
+//        return switch (marketCode) {
+//            case "P" -> "Prime";
+//            case "S" -> "Standard";
+//            case "G" -> "Growth";
+//            default -> "Unknown";
+//        };
+//    }
 
     // ProductNameを33文字以内に整形するメソッド
     public static String formatProductName(String productName) {
@@ -32,6 +34,16 @@ public class Stock {
             return productName.substring(0, 23) + "...";
         }
         return productName;
+    }
+
+    public static String formatSharesIssued(String sharesIssued) {
+        try {
+            BigDecimal shares = new BigDecimal(sharesIssued);
+            DecimalFormat decimalFormat = new DecimalFormat("#,###");
+            return decimalFormat.format(shares);
+        } catch (NumberFormatException e) {
+            return sharesIssued;  // もし数値でない場合、そのまま返す
+        }
     }
 
     // データを表示するメソッド
@@ -44,7 +56,8 @@ public class Stock {
         // データ行の表示
         for (Stock stock : stockList) {
             String formattedName = Stock.formatProductName(stock.productName);
-            System.out.printf("|  %-6s|%-29s|%-13s|%-14s|%n", stock.ticker, formattedName, stock.market, stock.sharesIssued);
+            String formattedSharesIssued = Stock.formatSharesIssued(stock.sharesIssued);
+            System.out.printf("|  %-6s|%-29s|%-13s|%-14s|%n", stock.ticker, formattedName, stock.market.getDisplayName(), formattedSharesIssued);
         }
 
         System.out.println("|========|=============================|=============|==============|");

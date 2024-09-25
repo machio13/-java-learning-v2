@@ -34,6 +34,8 @@ public class Main {
                 }
                 case "2" -> {
                     System.out.println("2. 銘柄マスタ新規登録");
+                    NewEntry newEntry = new NewEntry(csvFile);
+                    newEntry.addNewEntry();
                     System.out.println("---");
                 }
                 case "3" -> {
