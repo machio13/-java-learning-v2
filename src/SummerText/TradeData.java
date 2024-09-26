@@ -47,10 +47,9 @@ public class TradeData {
             } else {
             }
         }
-
         //売買記録を入力
         while (true) {
-            System.out.print("売買区分>");
+            System.out.print("売買区分(Sell, Buy)>");
             side = scanner.nextLine();
             if (side.equals("Sell") || side.equals("Buy")) {
                 break;
@@ -59,11 +58,18 @@ public class TradeData {
             }
         }
         //数量を入力
+        String quantityStr;
         while (true) {
             System.out.print("数量>");
-            quantity = scanner.nextLine();
-            if (quantity.matches("\\d+")) {
-                break;
+            quantityStr = scanner.nextLine();
+            if (quantityStr.matches("\\d+")) {
+                int quantityInt = Integer.parseInt(quantityStr);
+                if (quantityInt % 100 == 0) {
+                     quantity = String.valueOf(quantityInt);
+                    break;
+                }else {
+                    System.out.println("入力し直してください");
+                }
             }else {
                 System.out.println("入力し直してください");
             }
