@@ -24,7 +24,6 @@ public class CsvReader {
             // CSVファイルを1行ずつ読み込む
             while ((line = br.readLine()) != null) {
                 String[] stockData = line.split(cvsSplitBy);
-//                String marketType = Stock.convertMarketType(stockData[2]);
                 Market marketType = Market.fromCode(stockData[2]);
                 stockList.add(new Stock(stockData[0], stockData[1], marketType, stockData[3]));
             }

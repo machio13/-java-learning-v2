@@ -17,17 +17,6 @@ public class Stock {
         this.market = market;
         this.sharesIssued = sharesIssued;
     }
-
-    // Marketの変換メソッド
-//    public static String convertMarketType(String marketCode) {
-//        return switch (marketCode) {
-//            case "P" -> "Prime";
-//            case "S" -> "Standard";
-//            case "G" -> "Growth";
-//            default -> "Unknown";
-//        };
-//    }
-
     // ProductNameを33文字以内に整形するメソッド
     public static String formatProductName(String productName) {
         if (productName.length() > 23) {
