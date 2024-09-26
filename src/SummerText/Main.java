@@ -40,6 +40,8 @@ public class Main {
                 }
                 case "3" -> {
                     System.out.println("3. 取引入力");
+                    TradeData tradeData = new TradeData();
+                    tradeData.userInputTradeData();
                     System.out.println("---");
                 }
                 case "4" -> {
